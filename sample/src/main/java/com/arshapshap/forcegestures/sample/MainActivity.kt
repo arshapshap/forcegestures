@@ -2,7 +2,6 @@ package com.arshapshap.forcegestures.sample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.arshapshap.forcetouchexample.R
 
 class MainActivity : AppCompatActivity() {
 
