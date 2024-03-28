@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.arshapshap.forcetouchexample"
+    namespace = "com.arshapshap.forcegestures.sample"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.arshapshap.forcetouchexample"
+        applicationId = "com.arshapshap.forcegestures.sample"
         minSdk = 26
         targetSdk = 34
         versionCode = 1

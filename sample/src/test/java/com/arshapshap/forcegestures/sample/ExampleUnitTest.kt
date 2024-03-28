@@ -1,4 +1,4 @@
-package com.arshapshap.forcetouchexample
+package com.arshapshap.forcegestures.sample
 
 import org.junit.Test
 
