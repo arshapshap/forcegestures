@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Force Gestures Sample</string>
+    <string name="test_force_touch">Test force touch</string>
+    <string name="test_long_force_touch">Test long force touch</string>
+    <string name="test_double_force_touch">Test double force touch</string>
+    <string name="test_force_press">Test force press</string>
+    <string name="test_force_swipe">Test force swipe</string>
+    <string name="test_force_scroll">Test force scroll</string>
+    <string name="test_force_pinch">Test force pinch</string>
 </resources>

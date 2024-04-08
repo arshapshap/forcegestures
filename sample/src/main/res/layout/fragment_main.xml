@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screen.MainFragment"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/forceTouchFragmentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/test_force_touch" />
+
+    <Button
+        android:id="@+id/longForceTouchFragmentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/test_long_force_touch" />
+
+    <Button
+        android:id="@+id/doubleForceTouchFragmentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/test_double_force_touch" />
+
+    <Button
+        android:id="@+id/forcePressFragmentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/test_force_press" />
+
+    <Button
+        android:id="@+id/forceSwipeFragmentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/test_force_swipe" />
+
+    <Button
+        android:id="@+id/forceScrollFragmentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/test_force_scroll" />
+
+    <Button
+        android:id="@+id/forcePinchFragmentButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/test_force_pinch" />
+
+</LinearLayout>

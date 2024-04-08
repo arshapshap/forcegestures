@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.MainFragment"
+        android:label="Main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/forceTouchFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.ForceTouchFragment"
+        android:label="Force Touch"
+        tools:layout="@layout/fragment_force_touch" />
+    <fragment
+        android:id="@+id/longForceTouchFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.LongForceTouchFragment"
+        android:label="Long Force Touch"
+        tools:layout="@layout/fragment_long_force_touch" />
+    <fragment
+        android:id="@+id/doubleForceTouchFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.DoubleForceTouchFragment"
+        android:label="Double Force Touch"
+        tools:layout="@layout/fragment_double_force_touch" />
+    <fragment
+        android:id="@+id/forcePinchFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.ForcePinchFragment"
+        android:label="Force Pinch"
+        tools:layout="@layout/fragment_force_pinch" />
+    <fragment
+        android:id="@+id/forcePressFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.ForcePressFragment"
+        android:label="Force Press"
+        tools:layout="@layout/fragment_force_press" />
+    <fragment
+        android:id="@+id/forceScrollFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.ForceScrollFragment"
+        android:label="Force Scroll"
+        tools:layout="@layout/fragment_force_scroll" />
+    <fragment
+        android:id="@+id/forceSwipeFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.ForceSwipeFragment"
+        android:label="Force Swipe"
+        tools:layout="@layout/fragment_force_swipe" />
+</navigation>
