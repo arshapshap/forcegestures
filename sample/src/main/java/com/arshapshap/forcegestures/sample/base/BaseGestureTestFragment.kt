@@ -1,5 +1,6 @@
 package com.arshapshap.forcegestures.sample.base
 
+import android.widget.TextView
 import androidx.annotation.StringRes
 import androidx.lifecycle.lifecycleScope
 import com.arshapshap.forcegestures.sample.R
@@ -23,6 +24,10 @@ abstract class BaseGestureTestFragment : BaseFragment<FragmentForceGestureBindin
 
     protected fun showGestureDetected(@StringRes gestureStringId: Int) = with(binding.resultTextView) {
         text = getString(R.string.gesture_detected, getString(gestureStringId)).replaceFirstChar { it.uppercaseChar() }
+        this.clearAfterDelay()
+    }
+
+    protected fun TextView.clearAfterDelay() {
         clearResultJob?.cancel()
         clearResultJob = lifecycleScope.launch {
             delay(1500)
