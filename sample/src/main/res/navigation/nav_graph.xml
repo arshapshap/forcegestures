@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_force_gesture" />
     <fragment
         android:id="@+id/doubleForceTouchFragment"
-        android:name="com.arshapshap.forcegestures.sample.screen.DoubleForceTouchFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.DoubleForceClickFragment"
         android:label="Double Force Touch"
         tools:layout="@layout/fragment_force_gesture" />
     <fragment
