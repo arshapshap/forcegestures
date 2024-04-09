@@ -1,10 +1,15 @@
 <resources>
     <string name="app_name">Force Gestures Sample</string>
-    <string name="test_force_touch">Test force touch</string>
-    <string name="test_long_force_touch">Test long force touch</string>
-    <string name="test_double_force_touch">Test double force touch</string>
-    <string name="test_force_press">Test force press</string>
-    <string name="test_force_swipe">Test force swipe</string>
-    <string name="test_force_scroll">Test force scroll</string>
-    <string name="test_force_pinch">Test force pinch</string>
+    <string name="test">Test %s</string>
+    <string name="make">Make %s</string>
+    <string name="force_click">force click</string>
+    <string name="long_force_click">long force click</string>
+    <string name="double_force_click">double force click</string>
+    <string name="force_press">force press</string>
+    <string name="force_swipe">force swipe</string>
+    <string name="force_scroll">force scroll</string>
+    <string name="force_pinch">force pinch</string>
+    <string name="gesture_detected">%s detected</string>
+    <string name="long_normal_click">long normal click</string>
+    <string name="normal_click">normal click</string>
 </resources>

@@ -3,50 +3,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screen.MainFragment"
+    android:gravity="center"
     android:orientation="vertical"
-    android:gravity="center">
+    tools:context=".screen.MainFragment">
 
     <Button
         android:id="@+id/forceTouchFragmentButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/test_force_touch" />
+        tools:text="Test force touch" />
 
     <Button
         android:id="@+id/longForceTouchFragmentButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/test_long_force_touch" />
+        tools:text="Test long force touch" />
 
     <Button
         android:id="@+id/doubleForceTouchFragmentButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/test_double_force_touch" />
+        tools:text="Test double force touch" />
 
     <Button
         android:id="@+id/forcePressFragmentButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/test_force_press" />
+        tools:text="Test force press" />
 
     <Button
         android:id="@+id/forceSwipeFragmentButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/test_force_swipe" />
+        tools:text="Test force swipe" />
 
     <Button
         android:id="@+id/forceScrollFragmentButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/test_force_scroll" />
+        tools:text="Test force scroll" />
 
     <Button
         android:id="@+id/forcePinchFragmentButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/test_force_pinch" />
+        tools:text="Test force pinch" />
 
 </LinearLayout>

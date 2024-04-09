@@ -1,13 +1,11 @@
 package com.arshapshap.forcegestures.sample.screen
 
-import com.arshapshap.forcegestures.sample.base.BaseFragment
-import com.arshapshap.forcegestures.sample.databinding.FragmentForceSwipeBinding
+import com.arshapshap.forcegestures.sample.R
+import com.arshapshap.forcegestures.sample.base.BaseGestureTestFragment
 
-class ForceSwipeFragment : BaseFragment<FragmentForceSwipeBinding>(
-    FragmentForceSwipeBinding::inflate
-) {
+class ForceSwipeFragment : BaseGestureTestFragment() {
 
     override fun initViews() {
-        //TODO("Not yet implemented")
+        super.initViews(R.string.force_swipe)
     }
 }
