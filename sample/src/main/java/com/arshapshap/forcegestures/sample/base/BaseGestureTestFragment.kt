@@ -18,7 +18,7 @@ abstract class BaseGestureTestFragment : BaseFragment<FragmentForceGestureBindin
     }
 
     protected fun showGestureDetected(@StringRes gestureStringId: Int) = with(binding.resultTextView) {
-        text = getString(R.string.gesture_detected, getString(gestureStringId)).capitalize()
+        text = getString(R.string.gesture_detected, getString(gestureStringId)).replaceFirstChar { it.uppercaseChar() }
         removeCallbacks(clearDetectedGestureRunnable)
         postDelayed(clearDetectedGestureRunnable, 1500)
     }
