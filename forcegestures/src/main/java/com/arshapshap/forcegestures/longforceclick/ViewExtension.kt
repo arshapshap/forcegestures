@@ -12,15 +12,14 @@ fun View.setOnLongForceClickListener(listener: OnLongForceClickListener?) {
         GestureDetector(this.context, object : GestureDetector.SimpleOnGestureListener() {
 
             override fun onLongPress(event: MotionEvent) {
-                when (event.action) {
-                    MotionEvent.ACTION_DOWN -> {
-                        if (event.pressure < 0.22f)
-                            listener?.onLongNormalClick(view)
-                        else
-                            listener?.onLongForceClick(view)
-                    }
-                }
+                if (event.pressure < 0.22f)
+                    listener?.onLongNormalClick(view)
+                else
+                    listener?.onLongForceClick(view)
             }
         })
-    setOnTouchListener { v, event -> gestureDetector.onTouchEvent(event) }
+    setOnTouchListener { v, event ->
+        gestureDetector.onTouchEvent(event)
+        false
+    }
 }

@@ -15,13 +15,8 @@ fun View.setOnForceClickListener(listener: OnForceClickListener?) {
                     listener?.onNormalClick(this)
                 else
                     listener?.onForceClick(this)
-                view.setHotspot(event.x, event.y)
-                view.isPressed = true
-            }
-            MotionEvent.ACTION_UP -> {
-                view.isPressed = false
             }
         }
-        true
+        false
     }
 }
