@@ -3,7 +3,6 @@ package com.arshapshap.forcegestures.sample.screen
 import android.view.View
 import com.arshapshap.forcegestures.doubleforceclick.OnDoubleForceClickListener
 import com.arshapshap.forcegestures.doubleforceclick.setOnDoubleForceClickListener
-import com.arshapshap.forcegestures.longforceclick.setOnLongForceClickListener
 import com.arshapshap.forcegestures.sample.R
 import com.arshapshap.forcegestures.sample.base.BaseGestureTestFragment
 import com.arshapshap.forcegestures.sample.utils.getColorControlHighlight
