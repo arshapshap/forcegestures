@@ -13,4 +13,5 @@
     <string name="long_normal_click">long normal click</string>
     <string name="normal_click">normal click</string>
     <string name="double_normal_click">double normal click</string>
+    <string name="pressure">Pressure: %1$f</string>
 </resources>

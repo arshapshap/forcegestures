@@ -14,7 +14,7 @@ class ForcePressFragment : BaseGestureTestFragment(), OnForcePressListener {
     }
 
     override fun onForcePress(view: View, pressure: Float) = with(binding.resultTextView) {
-        text = "Pressure: $pressure"
+        text = context.getString(R.string.pressure, pressure)
         this.clearAfterDelay()
     }
 }
