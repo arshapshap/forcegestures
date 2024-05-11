@@ -5,7 +5,6 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import com.arshapshap.forcegestures.PressureHelper
-import com.arshapshap.forcegestures.longforceclick.setOnLongForceClickListener
 
 @SuppressLint("ClickableViewAccessibility")
 fun View.setOnForceSwipeListener(listener: OnForceSwipeListener?) {

@@ -6,7 +6,6 @@ import com.arshapshap.forcegestures.forceclick.setOnForceClickListener
 import com.arshapshap.forcegestures.sample.R
 import com.arshapshap.forcegestures.sample.base.BaseGestureTestFragment
 import com.arshapshap.forcegestures.sample.utils.getColorControlHighlight
-import com.arshapshap.forcegestures.sample.utils.getColorFromTheme
 import com.arshapshap.forcegestures.sample.utils.getPrimaryColor
 import com.arshapshap.forcegestures.sample.utils.setRippleColor
 
