@@ -5,6 +5,7 @@ import com.arshapshap.forcegestures.forceclick.OnForceClickListener
 import com.arshapshap.forcegestures.forceclick.setOnForceClickListener
 import com.arshapshap.forcegestures.sample.R
 import com.arshapshap.forcegestures.sample.base.BaseGestureTestFragment
+import com.arshapshap.forcegestures.sample.utils.getColorControlHighlight
 import com.arshapshap.forcegestures.sample.utils.getColorFromTheme
 import com.arshapshap.forcegestures.sample.utils.getPrimaryColor
 import com.arshapshap.forcegestures.sample.utils.setRippleColor
@@ -22,7 +23,7 @@ class ForceClickFragment : BaseGestureTestFragment(), OnForceClickListener {
     }
 
     override fun onNormalClick(view: View) {
-        view.foreground.setRippleColor(getColorFromTheme(androidx.appcompat.R.attr.colorControlHighlight))
+        view.foreground.setRippleColor(getColorControlHighlight())
         showGestureDetected(R.string.normal_click)
     }
 }
