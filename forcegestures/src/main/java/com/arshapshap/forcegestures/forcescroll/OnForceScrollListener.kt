@@ -8,7 +8,7 @@ interface OnForceScrollListener {
      * Called while scrolling view.
      *
      * @param view The view that was scrolled.
-     * @param delta The value indicating the speed of scrolling.
+     * @param velocity The value indicating the speed of scrolling.
      */
-    fun onForceScroll(view: View, delta: Float)
+    fun onForceScroll(view: View, velocity: Float)
 }
