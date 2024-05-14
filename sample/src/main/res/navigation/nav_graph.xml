@@ -37,7 +37,7 @@
         tools:layout="@layout/fragment_force_gesture" />
     <fragment
         android:id="@+id/forceScrollFragment"
-        android:name="com.arshapshap.forcegestures.sample.screen.ForceScrollFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.forcescroll.ForceScrollFragment"
         android:label="Force Scroll"
         tools:layout="@layout/fragment_force_gesture" />
     <fragment

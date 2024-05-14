@@ -16,4 +16,5 @@
     <string name="normal_press">normal press</string>
     <string name="normal_swipe">normal swipe</string>
     <string name="pressure">Pressure: %1$f</string>
+    <string name="recycler_view_item">Item %d</string>
 </resources>
