@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.LinearLayout
 import com.arshapshap.forcegestures.PressureHelper
 
-internal class OnTouchListenerImpl(
+internal class ScrollListenerImpl(
     private val orientation: Int = LinearLayout.VERTICAL,
     private val onScroll: (Float) -> Unit
 ) : View.OnTouchListener {
