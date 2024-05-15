@@ -13,21 +13,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        tools:text="Make force scroll" />
+        tools:text="Make force pinch" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="300dp"
-        android:layout_height="600dp"
+        android:layout_height="300dp"
         android:layout_margin="16dp"
         app:cardCornerRadius="16dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+        <ImageView
+            android:id="@+id/scalable_image_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_icon_with_text"/>
+            android:contentDescription="@string/scalable_image_view"
+            android:src="@drawable/ic_launcher_background" />
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/result_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:text="Force gesture detected!" />
 
 </LinearLayout>

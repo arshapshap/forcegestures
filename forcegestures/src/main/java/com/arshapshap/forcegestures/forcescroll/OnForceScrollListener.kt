@@ -2,7 +2,7 @@ package com.arshapshap.forcegestures.forcescroll
 
 import android.view.View
 
-interface OnForceScrollListener {
+fun interface OnForceScrollListener {
 
     /**
      * Called while scrolling view.

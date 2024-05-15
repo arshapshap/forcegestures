@@ -27,7 +27,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
         forcePressFragmentButton.text = getButtonName(R.string.force_press)
         forceSwipeFragmentButton.text = getButtonName(R.string.force_swipe)
         forceScrollFragmentButton.text = getButtonName(R.string.force_scroll)
-        forcePinchFragmentButton.text = getButtonName(R.string.force_pinch)
+        forcePinchFragmentButton.text = getButtonName(R.string.force_scale)
     }
 
     private fun Button.onClickNavigateTo(@IdRes destination: Int) = setOnClickListener {

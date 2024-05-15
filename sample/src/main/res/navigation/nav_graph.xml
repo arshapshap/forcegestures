@@ -27,7 +27,7 @@
         tools:layout="@layout/fragment_force_gesture" />
     <fragment
         android:id="@+id/forcePinchFragment"
-        android:name="com.arshapshap.forcegestures.sample.screen.ForcePinchFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.ForceScaleFragment"
         android:label="Force Pinch"
         tools:layout="@layout/fragment_force_gesture" />
     <fragment

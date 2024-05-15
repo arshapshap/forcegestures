@@ -8,7 +8,7 @@
     <string name="force_press">force press</string>
     <string name="force_swipe">force swipe</string>
     <string name="force_scroll">force scroll</string>
-    <string name="force_pinch">force pinch</string>
+    <string name="force_scale">force scale</string>
     <string name="gesture_detected">%s detected</string>
     <string name="long_normal_click">long normal click</string>
     <string name="normal_click">normal click</string>
@@ -17,4 +17,6 @@
     <string name="normal_swipe">normal swipe</string>
     <string name="pressure">Pressure: %1$f</string>
     <string name="recycler_view_item">Item %d</string>
+    <string name="current_scale">Current scale: %.2fx</string>
+    <string name="scalable_image_view">Scalable image view</string>
 </resources>
