@@ -1,4 +1,4 @@
-package com.arshapshap.forcegestures.sample.screen
+package com.arshapshap.forcegestures.sample.screen.forcescale
 
 import com.arshapshap.forcegestures.forcescale.setOnForceScaleListener
 import com.arshapshap.forcegestures.sample.R

@@ -1,4 +1,4 @@
-package com.arshapshap.forcegestures.sample.screen
+package com.arshapshap.forcegestures.sample.screen.forceswipe
 
 import android.view.View
 import com.arshapshap.forcegestures.forceswipe.OnForceSwipeListener

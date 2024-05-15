@@ -1,4 +1,4 @@
-package com.arshapshap.forcegestures.sample.screen
+package com.arshapshap.forcegestures.sample.screen.forceclick
 
 import android.view.View
 import com.arshapshap.forcegestures.forceclick.OnForceClickListener
