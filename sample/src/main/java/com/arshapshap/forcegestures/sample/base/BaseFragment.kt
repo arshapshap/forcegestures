@@ -12,9 +12,9 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
+internal typealias Inflate<T> = (LayoutInflater, ViewGroup?, Boolean) -> T
 
-abstract class BaseFragment<VB : ViewBinding>(
+internal abstract class BaseFragment<VB : ViewBinding>(
     private val inflate: Inflate<VB>,
 ) : Fragment() {
 
@@ -28,10 +28,13 @@ abstract class BaseFragment<VB : ViewBinding>(
     ): View? {
         _binding = inflate.invoke(inflater, container, false)
         initViews()
+        subscribe()
         return binding.root
     }
 
     abstract fun initViews()
+
+    open fun subscribe() = Unit
 
     override fun onDestroyView() {
         super.onDestroyView()

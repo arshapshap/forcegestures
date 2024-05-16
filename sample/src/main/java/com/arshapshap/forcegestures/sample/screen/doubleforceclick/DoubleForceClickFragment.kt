@@ -9,7 +9,7 @@ import com.arshapshap.forcegestures.sample.utils.getColorControlHighlight
 import com.arshapshap.forcegestures.sample.utils.getPrimaryColor
 import com.arshapshap.forcegestures.sample.utils.setRippleColor
 
-class DoubleForceClickFragment : BaseGestureTestFragment(), OnDoubleForceClickListener {
+internal class DoubleForceClickFragment : BaseGestureTestFragment(), OnDoubleForceClickListener {
 
     override fun initViews() = with(binding) {
         super.initViews(R.string.double_force_click)

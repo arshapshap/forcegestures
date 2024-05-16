@@ -5,7 +5,7 @@ import com.arshapshap.forcegestures.sample.R
 import com.arshapshap.forcegestures.sample.base.BaseFragment
 import com.arshapshap.forcegestures.sample.databinding.FragmentForceScaleBinding
 
-class ForceScaleFragment : BaseFragment<FragmentForceScaleBinding>(
+internal class ForceScaleFragment : BaseFragment<FragmentForceScaleBinding>(
     FragmentForceScaleBinding::inflate
 ) {
 

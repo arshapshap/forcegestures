@@ -6,7 +6,7 @@ import com.arshapshap.forcegestures.forcepress.setOnForcePressListener
 import com.arshapshap.forcegestures.sample.R
 import com.arshapshap.forcegestures.sample.base.BaseGestureTestFragment
 
-class ForcePressFragment : BaseGestureTestFragment(), OnForcePressListener {
+internal class ForcePressFragment : BaseGestureTestFragment(), OnForcePressListener {
 
     override fun initViews() = with(binding) {
         super.initViews(R.string.force_press)
@@ -14,7 +14,7 @@ class ForcePressFragment : BaseGestureTestFragment(), OnForcePressListener {
     }
 
     override fun onForcePress(view: View, pressure: Float) = with(binding.resultTextView) {
-        text = context.getString(R.string.pressure, pressure)
+        text = context.getString(R.string.pressure_value, pressure)
         this.clearAfterDelay()
     }
 }

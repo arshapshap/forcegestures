@@ -6,7 +6,7 @@ import com.arshapshap.forcegestures.sample.databinding.FragmentForceGestureBindi
 import com.arshapshap.forcegestures.sample.utils.getColorControlHighlight
 import com.arshapshap.forcegestures.sample.utils.setRippleColor
 
-abstract class BaseGestureTestFragment : BaseFragment<FragmentForceGestureBinding>(
+internal abstract class BaseGestureTestFragment : BaseFragment<FragmentForceGestureBinding>(
     FragmentForceGestureBinding::inflate
 ) {
 

@@ -9,7 +9,7 @@ import com.arshapshap.forcegestures.sample.utils.getColorControlHighlight
 import com.arshapshap.forcegestures.sample.utils.getPrimaryColor
 import com.arshapshap.forcegestures.sample.utils.setRippleColor
 
-class ForceSwipeFragment : BaseGestureTestFragment(), OnForceSwipeListener {
+internal class ForceSwipeFragment : BaseGestureTestFragment(), OnForceSwipeListener {
 
     override fun initViews() = with (binding) {
         super.initViews(R.string.force_swipe)

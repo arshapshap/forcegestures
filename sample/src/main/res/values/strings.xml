@@ -15,8 +15,22 @@
     <string name="double_normal_click">double normal click</string>
     <string name="normal_press">normal press</string>
     <string name="normal_swipe">normal swipe</string>
-    <string name="pressure">Pressure: %1$f</string>
+    <string name="pressure">Pressure</string>
+    <string name="pressure_value">Pressure: %1$f</string>
     <string name="recycler_view_item">Item %d</string>
     <string name="current_scale">Current scale: %.2fx</string>
     <string name="scalable_image_view">Scalable image view</string>
+    <string name="empty_float_value">—</string>
+    <string name="calibration">Calibration</string>
+    <string name="normal_touch">normal touch</string>
+    <string name="force_touch">force touch</string>
+    <string name="weak_touch">weak touch</string>
+    <string name="float_value">%.2f</string>
+    <string name="all_touches_are_done">All touches are done</string>
+    <string name="save">Save</string>
+    <string name="reset_all">Reset all</string>
+    <string name="reset_last_value">Reset the last value</string>
+    <string name="calibration_is_required">Calibration is required</string>
+    <string name="calibration_completed">Calibration completed</string>
+    <string name="a_place_for_touches">A place for touches</string>
 </resources>

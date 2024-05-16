@@ -1,11 +1,12 @@
 package com.arshapshap.forcegestures
 
 import android.view.MotionEvent
+import com.arshapshap.forcegestures.calibration.CalibrationHelper
 
 internal object PressureHelper {
 
     fun isForceTouch(event: MotionEvent): Boolean {
-        return event.pressure >= 0.2f
+        return event.pressure >= (CalibrationHelper.normalPressure + CalibrationHelper.forcePressure) / 2
     }
 
     fun getPressure(event: MotionEvent): Float {
@@ -13,6 +14,6 @@ internal object PressureHelper {
     }
 
     fun getPressureDeviance(event: MotionEvent): Float {
-        return event.pressure / 0.15f
+        return event.pressure / CalibrationHelper.normalPressure
     }
 }

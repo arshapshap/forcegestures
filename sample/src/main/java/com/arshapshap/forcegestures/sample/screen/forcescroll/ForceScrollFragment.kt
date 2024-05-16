@@ -5,7 +5,7 @@ import com.arshapshap.forcegestures.sample.R
 import com.arshapshap.forcegestures.sample.base.BaseFragment
 import com.arshapshap.forcegestures.sample.databinding.FragmentForceScrollBinding
 
-class ForceScrollFragment : BaseFragment<FragmentForceScrollBinding>(
+internal class ForceScrollFragment : BaseFragment<FragmentForceScrollBinding>(
     FragmentForceScrollBinding::inflate
 ) {
 

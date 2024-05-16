@@ -11,6 +11,11 @@
         android:label="Main"
         tools:layout="@layout/fragment_main" />
     <fragment
+        android:id="@+id/calibrationFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.calibration.CalibrationFragment"
+        android:label="Calibration"
+        tools:layout="@layout/fragment_calibration" />
+    <fragment
         android:id="@+id/forceTouchFragment"
         android:name="com.arshapshap.forcegestures.sample.screen.forceclick.ForceClickFragment"
         android:label="Force Touch"
