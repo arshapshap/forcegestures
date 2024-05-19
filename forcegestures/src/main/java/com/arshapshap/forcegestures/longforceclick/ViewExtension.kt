@@ -17,6 +17,7 @@ fun View.setOnLongForceClickListener(listener: OnLongForceClickListener?) {
                     listener?.onLongForceClick(view)
                 else
                     listener?.onLongNormalClick(view)
+                performLongClick()
             }
         })
     setOnTouchListener { _, event -> gestureDetector.onTouchEvent(event) }

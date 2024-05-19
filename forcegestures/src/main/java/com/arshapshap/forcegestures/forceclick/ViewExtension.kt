@@ -1,12 +1,9 @@
 package com.arshapshap.forcegestures.forceclick
 
-import android.annotation.SuppressLint
 import android.view.MotionEvent
 import android.view.View
 import com.arshapshap.forcegestures.PressureHelper
 
-
-@SuppressLint("ClickableViewAccessibility")
 fun View.setOnForceClickListener(listener: OnForceClickListener?) {
     setOnTouchListener { view, event ->
         when (event.action) {
@@ -15,6 +12,7 @@ fun View.setOnForceClickListener(listener: OnForceClickListener?) {
                     listener?.onForceClick(view)
                 else
                     listener?.onNormalClick(view)
+                performClick()
             }
         }
         false
