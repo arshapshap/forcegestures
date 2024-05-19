@@ -27,4 +27,3 @@ internal fun Fragment.getPrimaryColor(): Int {
 internal fun Fragment.getColorControlHighlight(): Int {
     return getColorFromTheme(androidx.appcompat.R.attr.colorControlHighlight)
 }
-

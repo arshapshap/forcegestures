@@ -106,42 +106,6 @@
             tools:text="0.16" />
 
         <TextView
-            android:id="@+id/normal_touch_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_gravity="start"
-            android:gravity="center"
-            android:text="@string/normal_touch" />
-
-        <TextView
-            android:id="@+id/normal_pressure_text_view_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center"
-            android:text="@string/empty_float_value"
-            tools:text="0.15" />
-
-        <TextView
-            android:id="@+id/normal_pressure_text_view_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center"
-            android:text="@string/empty_float_value"
-            tools:text="0.14" />
-
-        <TextView
-            android:id="@+id/normal_pressure_text_view_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:gravity="center"
-            android:text="@string/empty_float_value"
-            tools:text="0.16" />
-
-        <TextView
             android:id="@+id/force_touch_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

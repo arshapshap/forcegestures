@@ -11,7 +11,7 @@ fun View.setOnForcePressListener(listener: OnForcePressListener?) {
     setOnTouchListener { view, event ->
         when (event.action) {
             MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
-                listener?.onForcePress(view, PressureHelper.getPressure(event))
+                listener?.onForcePress(view, PressureHelper.getNormalizedPressure(event))
             }
         }
         false

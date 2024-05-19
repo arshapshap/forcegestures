@@ -3,28 +3,29 @@ package com.arshapshap.forcegestures.sample.screen
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
 import android.widget.Button
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
-import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
-import androidx.transition.Visibility
-import com.arshapshap.forcegestures.calibration.CalibrationHelper
+import androidx.preference.PreferenceManager
+import com.arshapshap.forcegestures.calibration.CalibrationValues
 import com.arshapshap.forcegestures.sample.R
 import com.arshapshap.forcegestures.sample.base.BaseFragment
 import com.arshapshap.forcegestures.sample.databinding.FragmentMainBinding
+import com.arshapshap.forcegestures.sample.utils.setVisible
 
 internal class MainFragment : BaseFragment<FragmentMainBinding>(
     FragmentMainBinding::inflate
 ) {
 
     override fun initViews() = with(binding) {
-        calibrationRequiredTextView.setVisible(CalibrationHelper.calibrationRequired)
-        setButtonsEnabled(!CalibrationHelper.calibrationRequired)
+        CalibrationValues.Editor(PreferenceManager.getDefaultSharedPreferences(requireContext()))
+            .loadPressure()
+        calibrationRequiredTextView.setVisible(CalibrationValues.calibrationRequired)
+        setButtonsEnabled(!CalibrationValues.calibrationRequired)
         configureToolbar()
         setOnClickListeners()
         setButtonsNames()
@@ -78,10 +79,6 @@ internal class MainFragment : BaseFragment<FragmentMainBinding>(
                 }
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
-    }
-
-    private fun View.setVisible(isVisible: Boolean) {
-        this.visibility = if (isVisible) View.VISIBLE else View.INVISIBLE
     }
 
     private fun Button.onClickNavigateTo(@IdRes destination: Int) = setOnClickListener {
