@@ -33,4 +33,5 @@
     <string name="calibration_is_required">Calibration is required</string>
     <string name="calibration_completed">Calibration completed</string>
     <string name="a_place_for_touches">A place for touches</string>
+    <string name="weak_pressure_cannot_be_greater_than_force_pressure">Weak pressure cannot be greater than force pressure</string>
 </resources>

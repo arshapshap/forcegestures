@@ -2,12 +2,14 @@ package com.arshapshap.forcegestures.sample.screen.calibration
 
 import android.content.SharedPreferences
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.isGone
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
+import com.arshapshap.forcegestures.calibration.CalibrationException
 import com.arshapshap.forcegestures.calibration.PressureCalibrator
-import com.arshapshap.forcegestures.calibration.setOnTouchWithPressureListener
+import com.arshapshap.forcegestures.calibration.setOnRawPressureListener
 import com.arshapshap.forcegestures.sample.R
 import com.arshapshap.forcegestures.sample.base.BaseFragment
 import com.arshapshap.forcegestures.sample.databinding.FragmentCalibrationBinding
@@ -38,9 +40,6 @@ internal class CalibrationFragment : BaseFragment<FragmentCalibrationBinding>(
         viewModel.stepAndIndex.observe(this@CalibrationFragment) { (step, index) ->
             if (step == CalibrationStep.Saved) {
                 saveValues()
-                titleTextView.text = getString(R.string.calibration_completed)
-                showToast(getString(R.string.calibration_completed))
-                findNavController().popBackStack()
             } else {
                 updateAppearance(step, index)
             }
@@ -60,7 +59,7 @@ internal class CalibrationFragment : BaseFragment<FragmentCalibrationBinding>(
     }
 
     private fun setOnClickListeners() = with(binding) {
-        cardView.setOnTouchWithPressureListener { _, pressure ->
+        cardView.setOnRawPressureListener { _, pressure ->
             viewModel.addPressureValue(pressure)
         }
         saveButton.setOnClickListener {
@@ -97,8 +96,18 @@ internal class CalibrationFragment : BaseFragment<FragmentCalibrationBinding>(
     }
 
     private fun saveValues() = viewModel.pressure.value?.let {
-        PressureCalibrator.Editor(sharedPreferences).saveWeakPressure(it[0].average().toFloat())
-        PressureCalibrator.Editor(sharedPreferences).saveForcePressure(it[1].average().toFloat())
+        try {
+            PressureCalibrator.Editor(sharedPreferences).savePressure(
+                weakPressure = it[0].average().toFloat(),
+                forcePressure = it[1].average().toFloat()
+            )
+            binding.titleTextView.text = getString(R.string.calibration_completed)
+            showToast(getString(R.string.calibration_completed))
+            findNavController().popBackStack()
+        } catch (e: CalibrationException) {
+            showToast(getString(R.string.weak_pressure_cannot_be_greater_than_force_pressure), Toast.LENGTH_LONG)
+            viewModel.rollbackSaving()
+        }
     }
 
     private fun getHintText(step: CalibrationStep) = when (step) {

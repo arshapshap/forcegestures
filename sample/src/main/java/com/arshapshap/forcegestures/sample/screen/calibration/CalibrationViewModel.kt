@@ -40,6 +40,10 @@ internal class CalibrationViewModel : ViewModel() {
         _stepAndIndex.postValue(CalibrationStep.Saved to 0)
     }
 
+    fun rollbackSaving() {
+        _stepAndIndex.postValue(CalibrationStep.Done to 0)
+    }
+
     fun resetLastValue() {
         if (stepAndIndex.value!!.first == CalibrationStep.WeakTouch && stepAndIndex.value!!.second == 0)
             return

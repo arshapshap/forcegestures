@@ -5,8 +5,7 @@ import android.view.ScaleGestureDetector
 import com.arshapshap.forcegestures.PressureHelper
 
 private const val MITIGATION_FACTOR = 0.1f
-
-class ScaleListener(
+internal class ScaleListener(
     private val onPinch: (Float) -> Unit
 ) : ScaleGestureDetector.SimpleOnScaleGestureListener() {
 
