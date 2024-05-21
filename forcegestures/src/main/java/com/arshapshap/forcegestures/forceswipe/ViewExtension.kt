@@ -4,10 +4,14 @@ import android.annotation.SuppressLint
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
+import com.arshapshap.forcegestures.DEFAULT_FORCE_TOUCH_THRESHOLD
 import com.arshapshap.forcegestures.PressureHelper
 
 @SuppressLint("ClickableViewAccessibility")
-fun View.setOnForceSwipeListener(listener: OnForceSwipeListener?) {
+fun View.setOnForceSwipeListener(
+    listener: OnForceSwipeListener?,
+    threshold: Float = DEFAULT_FORCE_TOUCH_THRESHOLD
+) {
     val view = this
     val gestureDetector =
         GestureDetector(this.context, object : GestureDetector.SimpleOnGestureListener() {
@@ -20,10 +24,10 @@ fun View.setOnForceSwipeListener(listener: OnForceSwipeListener?) {
             ): Boolean {
                 if (e1 == null)
                     return false
-                if (PressureHelper.isForceTouch(e1))
-                    listener?.onForceSwipe(view)
+                if (PressureHelper.isForceTouch(e1, threshold))
+                    listener?.onForceSwipe(view, velocityX, velocityY)
                 else
-                    listener?.onNormalSwipe(view)
+                    listener?.onNormalSwipe(view, velocityX, velocityY)
                 return super.onFling(e1, e2, velocityX, velocityY)
             }
         })

@@ -5,7 +5,6 @@ import android.view.MotionEvent
 import android.view.View
 import com.arshapshap.forcegestures.PressureHelper
 
-
 @SuppressLint("ClickableViewAccessibility")
 fun View.setOnForcePressListener(listener: OnForcePressListener?) {
     setOnTouchListener { view, event ->

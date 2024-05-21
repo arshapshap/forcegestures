@@ -9,12 +9,12 @@ interface OnForceSwipeListener {
      *
      * @param view The view that was swiped.
      */
-    fun onForceSwipe(view: View)
+    fun onForceSwipe(view: View, velocityX: Float, velocityY: Float)
 
     /**
      * Called after normal swipe on view.
      *
      * @param view The view that was swiped.
      */
-    fun onNormalSwipe(view: View)
+    fun onNormalSwipe(view: View, velocityX: Float, velocityY: Float)
 }

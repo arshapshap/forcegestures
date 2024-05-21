@@ -19,14 +19,14 @@ internal class ForceSwipeFragment : BaseGestureTestFragment(), OnForceSwipeListe
         cardView.setOnForceSwipeListener(this@ForceSwipeFragment)
     }
 
-    override fun onForceSwipe(view: View) {
+    override fun onForceSwipe(view: View, velocityX: Float, velocityY: Float) {
         view.foreground.setRippleColor(getPrimaryColor())
         view.isPressed = false
         view.isPressed = true
         showGestureDetected(R.string.force_swipe)
     }
 
-    override fun onNormalSwipe(view: View) {
+    override fun onNormalSwipe(view: View, velocityX: Float, velocityY: Float) {
         view.foreground.setRippleColor(getColorControlHighlight())
         view.isPressed = false
         view.isPressed = true

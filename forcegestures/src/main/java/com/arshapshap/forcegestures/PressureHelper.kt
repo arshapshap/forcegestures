@@ -4,9 +4,10 @@ import android.view.MotionEvent
 import com.arshapshap.forcegestures.calibration.PressureCalibrator.forcePressure
 import com.arshapshap.forcegestures.calibration.PressureCalibrator.weakPressure
 
+internal const val DEFAULT_FORCE_TOUCH_THRESHOLD = 0.8f
 internal object PressureHelper {
 
-    fun isForceTouch(event: MotionEvent, threshold: Float = 0.8f): Boolean {
+    fun isForceTouch(event: MotionEvent, threshold: Float): Boolean {
         return getNormalizedPressure(event) >= threshold
     }
 
