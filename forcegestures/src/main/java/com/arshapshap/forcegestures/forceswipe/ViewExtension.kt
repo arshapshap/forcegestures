@@ -4,6 +4,7 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import com.arshapshap.forcegestures.DEFAULT_FORCE_TOUCH_THRESHOLD
+import com.arshapshap.forcegestures.ForceGesturesInformer
 import com.arshapshap.forcegestures.PressureHelper
 
 /**
@@ -31,7 +32,9 @@ fun View.setOnForceSwipeListener(
             ): Boolean {
                 if (e1 == null)
                     return false
-                if (PressureHelper.isForceTouch(e1, threshold))
+                if (!ForceGesturesInformer.readyToUse)
+                    listener?.onUndefinedSwipe(view, velocityX, velocityY)
+                else if (PressureHelper.isForceTouch(e1, threshold))
                     listener?.onForceSwipe(view, velocityX, velocityY)
                 else
                     listener?.onNormalSwipe(view, velocityX, velocityY)

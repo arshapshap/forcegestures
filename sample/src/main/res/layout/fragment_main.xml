@@ -8,12 +8,12 @@
     tools:context=".screen.MainFragment">
 
     <TextView
-        android:id="@+id/calibration_required_text_view"
+        android:id="@+id/warning_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="@string/calibration_is_required"
+        android:text="@string/your_device_does_not_support_force_touches"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
         android:visibility="invisible"
         tools:visibility="visible" />

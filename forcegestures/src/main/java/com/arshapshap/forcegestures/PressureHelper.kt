@@ -58,11 +58,15 @@ object PressureHelper {
      *
      * The normalized pressure value is a float between 0.0 (no pressure) and 1.0 (maximum pressure),
      * calculated based on the calibrated weak and force pressure values from [PressureCalibrator].
+     * If the device does not support force touches (as determined by [ForceGesturesInformer.doesDeviceSupportForceTouches]),
+     * this method returns a constant value of 0.5, allowing scroll and zoom gestures to work in a normal mode.
      *
      * @param event The [MotionEvent] to retrieve the normalized pressure value from.
-     * @return The normalized pressure value of the event.
+     * @return The normalized pressure value of the event, or 0.5 if the device does not support force touches.
      */
     fun getNormalizedPressure(event: MotionEvent): Float {
+        if (!ForceGesturesInformer.readyToUse)
+            return 0.5f
         return ((event.pressure - weakPressure) / (forcePressure - weakPressure))
             .coerceIn(0f, 1f)
     }

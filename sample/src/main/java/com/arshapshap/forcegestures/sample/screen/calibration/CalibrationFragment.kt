@@ -7,6 +7,7 @@ import androidx.core.view.isGone
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
+import com.arshapshap.forcegestures.ForceGesturesInformer
 import com.arshapshap.forcegestures.calibration.CalibrationException
 import com.arshapshap.forcegestures.calibration.PressureCalibrator
 import com.arshapshap.forcegestures.calibration.setOnRawPressureListener
@@ -51,7 +52,7 @@ internal class CalibrationFragment : BaseFragment<FragmentCalibrationBinding>(
 
     private fun setTextViewsText() = with(binding) {
         titleTextView.text =
-            if (PressureCalibrator.calibrationRequired) getString(R.string.calibration_is_required)
+            if (ForceGesturesInformer.calibrationRequired) getString(R.string.calibration_is_required)
             else getString(R.string.calibration_completed)
         pressureTextView.text = pressureTextView.text.toString().firstCap()
         weakTouchTextView.text = weakTouchTextView.text.toString().firstCap()

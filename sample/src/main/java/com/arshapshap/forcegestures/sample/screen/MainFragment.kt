@@ -10,7 +10,7 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
-import com.arshapshap.forcegestures.calibration.PressureCalibrator
+import com.arshapshap.forcegestures.ForceGesturesInformer
 import com.arshapshap.forcegestures.sample.R
 import com.arshapshap.forcegestures.sample.base.BaseFragment
 import com.arshapshap.forcegestures.sample.databinding.FragmentMainBinding
@@ -21,21 +21,14 @@ internal class MainFragment : BaseFragment<FragmentMainBinding>(
 ) {
 
     override fun initViews() = with(binding) {
-        calibrationRequiredTextView.setVisible(PressureCalibrator.calibrationRequired)
-        setButtonsEnabled(!PressureCalibrator.calibrationRequired)
+        if (!ForceGesturesInformer.doesDeviceSupportForceTouches)
+            warningTextView.text = getString(R.string.your_device_does_not_support_force_touches)
+        else if (ForceGesturesInformer.doesDeviceSupportForceTouches)
+            warningTextView.text = getString(R.string.calibration_is_required)
+        warningTextView.setVisible(!ForceGesturesInformer.readyToUse)
         configureToolbar()
         setOnClickListeners()
         setButtonsNames()
-    }
-
-    private fun setButtonsEnabled(isEnabled: Boolean) = with(binding) {
-        forceTouchFragmentButton.isEnabled = isEnabled
-        longForceTouchFragmentButton.isEnabled = isEnabled
-        doubleForceTouchFragmentButton.isEnabled = isEnabled
-        forcePressFragmentButton.isEnabled = isEnabled
-        forceSwipeFragmentButton.isEnabled = isEnabled
-        forceScrollFragmentButton.isEnabled = isEnabled
-        forcePinchFragmentButton.isEnabled = isEnabled
     }
 
     private fun setOnClickListeners() = with(binding) {

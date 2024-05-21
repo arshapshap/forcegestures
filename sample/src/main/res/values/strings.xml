@@ -34,4 +34,5 @@
     <string name="calibration_completed">Calibration completed</string>
     <string name="a_place_for_touches">A place for touches</string>
     <string name="weak_pressure_cannot_be_greater_than_force_pressure">Weak pressure cannot be greater than force pressure</string>
+    <string name="your_device_does_not_support_force_touches">Your device does not support force touches</string>
 </resources>

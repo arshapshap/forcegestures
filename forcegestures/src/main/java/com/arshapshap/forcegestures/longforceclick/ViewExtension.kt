@@ -4,6 +4,7 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import com.arshapshap.forcegestures.DEFAULT_FORCE_TOUCH_THRESHOLD
+import com.arshapshap.forcegestures.ForceGesturesInformer
 import com.arshapshap.forcegestures.PressureHelper
 
 /**
@@ -24,7 +25,9 @@ fun View.setOnLongForceClickListener(
         GestureDetector(this.context, object : GestureDetector.SimpleOnGestureListener() {
 
             override fun onLongPress(event: MotionEvent) {
-                if (PressureHelper.isForceTouch(event, threshold))
+                if (!ForceGesturesInformer.readyToUse)
+                    listener?.onLongUndefinedClick(view)
+                else if (PressureHelper.isForceTouch(event, threshold))
                     listener?.onLongForceClick(view)
                 else
                     listener?.onLongNormalClick(view)

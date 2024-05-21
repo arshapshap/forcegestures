@@ -1,7 +1,6 @@
 package com.arshapshap.forcegestures.calibration
 
 import android.content.SharedPreferences
-import com.arshapshap.forcegestures.calibration.PressureCalibrator.calibrationRequired
 import com.arshapshap.forcegestures.calibration.PressureCalibrator.forcePressure
 import com.arshapshap.forcegestures.calibration.PressureCalibrator.weakPressure
 
@@ -19,19 +18,17 @@ private const val PREFERENCES_KEY_FORCE_PRESSURE = "$PREFERENCES_KEY_PREFIX/FORC
  *
  * @property weakPressure The calibrated weak pressure value, ranging from 0.0 (no pressure) to [forcePressure].
  * @property forcePressure The calibrated force pressure value, ranging from [weakPressure] to 1.0 (maximum pressure).
- * @property calibrationRequired Indicates whether calibration is required (true if either [weakPressure] or [forcePressure] is at its default value).
  */
 object PressureCalibrator {
 
-    private var _weakPressure: Float = 0f
-    private var _forcePressure: Float = 1f
+    private var _weakPressure: Float = Float.MIN_VALUE
+    private var _forcePressure: Float = Float.MAX_VALUE
 
     /** The calibrated weak pressure value, ranging from 0.0 (no pressure) to [forcePressure]. */
     val weakPressure get() = _weakPressure
+
     /** The calibrated force pressure value, ranging from [weakPressure] to 1.0 (maximum pressure). */
     val forcePressure get() = _forcePressure
-    /** Indicates whether calibration is required (true if either [weakPressure] or [forcePressure] is at its default value). */
-    val calibrationRequired get() = _weakPressure == 0f || _forcePressure == 1f
 
     /**
      * Editor class for saving and loading calibrated pressure values to and from [SharedPreferences].
@@ -55,8 +52,8 @@ object PressureCalibrator {
             if (weakPressure > forcePressure)
                 throw CalibrationException(weakPressure, forcePressure)
             sharedPreferences.edit().apply {
-                _weakPressure = weakPressure
-                _forcePressure = forcePressure
+                _weakPressure = weakPressure.coerceAtLeast(0f)
+                _forcePressure = forcePressure.coerceAtMost(1f)
                 putFloat(PREFERENCES_KEY_WEAK_PRESSURE, weakPressure)
                 putFloat(PREFERENCES_KEY_FORCE_PRESSURE, forcePressure)
             }.apply()
@@ -65,11 +62,11 @@ object PressureCalibrator {
         /**
          * Loads the previously saved weak and force pressure values from [SharedPreferences].
          *
-         * If no values are found in [SharedPreferences], the default values (0.0 for weak pressure, 1.0 for force pressure) will be used.
+         * If no values are found in [SharedPreferences], the default values ([Float.MIN_VALUE] for weak pressure, [Float.MAX_VALUE] for force pressure) will be used.
          */
         fun loadPressure() = with(sharedPreferences) {
-            _weakPressure = getFloat(PREFERENCES_KEY_WEAK_PRESSURE, 0f)
-            _forcePressure = getFloat(PREFERENCES_KEY_FORCE_PRESSURE, 1f)
+            _weakPressure = getFloat(PREFERENCES_KEY_WEAK_PRESSURE, Float.MIN_VALUE)
+            _forcePressure = getFloat(PREFERENCES_KEY_FORCE_PRESSURE, Float.MAX_VALUE)
         }
     }
 }

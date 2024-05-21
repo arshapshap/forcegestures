@@ -4,6 +4,7 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import com.arshapshap.forcegestures.DEFAULT_FORCE_TOUCH_THRESHOLD
+import com.arshapshap.forcegestures.ForceGesturesInformer
 import com.arshapshap.forcegestures.PressureHelper
 
 /**
@@ -24,7 +25,9 @@ fun View.setOnDoubleForceClickListener(
         GestureDetector(this.context, object : GestureDetector.SimpleOnGestureListener() {
 
             override fun onDoubleTap(event: MotionEvent): Boolean {
-                if (PressureHelper.isForceTouch(event, threshold))
+                if (!ForceGesturesInformer.readyToUse)
+                    listener?.onDoubleUndefinedClick(view)
+                else if (PressureHelper.isForceTouch(event, threshold))
                     listener?.onDoubleForceClick(view)
                 else
                     listener?.onDoubleNormalClick(view)
