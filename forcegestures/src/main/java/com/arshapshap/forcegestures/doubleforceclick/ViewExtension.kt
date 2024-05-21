@@ -1,13 +1,11 @@
 package com.arshapshap.forcegestures.doubleforceclick
 
-import android.annotation.SuppressLint
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import com.arshapshap.forcegestures.DEFAULT_FORCE_TOUCH_THRESHOLD
 import com.arshapshap.forcegestures.PressureHelper
 
-@SuppressLint("ClickableViewAccessibility")
 fun View.setOnDoubleForceClickListener(
     listener: OnDoubleForceClickListener?,
     threshold: Float = DEFAULT_FORCE_TOUCH_THRESHOLD
@@ -24,5 +22,9 @@ fun View.setOnDoubleForceClickListener(
                 return super.onDoubleTap(event)
             }
         })
-    setOnTouchListener { _, event -> gestureDetector.onTouchEvent(event) }
+    setOnTouchListener { _, event ->
+        if (event.action == MotionEvent.ACTION_DOWN)
+            performClick()
+        gestureDetector.onTouchEvent(event)
+    }
 }

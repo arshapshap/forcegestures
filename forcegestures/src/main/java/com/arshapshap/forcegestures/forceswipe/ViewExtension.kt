@@ -1,13 +1,11 @@
 package com.arshapshap.forcegestures.forceswipe
 
-import android.annotation.SuppressLint
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import com.arshapshap.forcegestures.DEFAULT_FORCE_TOUCH_THRESHOLD
 import com.arshapshap.forcegestures.PressureHelper
 
-@SuppressLint("ClickableViewAccessibility")
 fun View.setOnForceSwipeListener(
     listener: OnForceSwipeListener?,
     threshold: Float = DEFAULT_FORCE_TOUCH_THRESHOLD
@@ -31,5 +29,9 @@ fun View.setOnForceSwipeListener(
                 return super.onFling(e1, e2, velocityX, velocityY)
             }
         })
-    setOnTouchListener { _, event -> gestureDetector.onTouchEvent(event) }
+    setOnTouchListener { _, event ->
+        if (event.action == MotionEvent.ACTION_DOWN)
+            performClick()
+        gestureDetector.onTouchEvent(event)
+    }
 }
