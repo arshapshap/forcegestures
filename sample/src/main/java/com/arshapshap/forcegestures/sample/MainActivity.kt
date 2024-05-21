@@ -6,6 +6,8 @@ import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import androidx.preference.PreferenceManager
+import com.arshapshap.forcegestures.calibration.PressureCalibrator
 
 
 internal class MainActivity : AppCompatActivity() {
@@ -14,12 +16,18 @@ internal class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        configureForceGesturesLib()
 
         val navController = getNavController()
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         toolbar.setupWithNavController(navController, appBarConfiguration)
+    }
+
+    private fun configureForceGesturesLib() {
+        PressureCalibrator.Editor(PreferenceManager.getDefaultSharedPreferences(this))
+            .loadPressure()
     }
 
     private fun getNavController() =

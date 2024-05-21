@@ -6,7 +6,7 @@ private const val PREFERENCES_KEY_PREFIX = "FORCE_GESTURES_PRESSURE"
 private const val PREFERENCES_KEY_WEAK_PRESSURE = "$PREFERENCES_KEY_PREFIX/WEAK_PRESSURE"
 private const val PREFERENCES_KEY_FORCE_PRESSURE = "$PREFERENCES_KEY_PREFIX/FORCE_PRESSURE"
 
-object CalibrationValues {
+object PressureCalibrator {
 
     private var _weakPressure: Float = 0f
     private var _forcePressure: Float = 0f

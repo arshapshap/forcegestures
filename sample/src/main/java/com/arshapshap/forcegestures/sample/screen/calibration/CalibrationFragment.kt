@@ -6,7 +6,7 @@ import androidx.core.view.isGone
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
-import com.arshapshap.forcegestures.calibration.CalibrationValues
+import com.arshapshap.forcegestures.calibration.PressureCalibrator
 import com.arshapshap.forcegestures.calibration.setOnTouchWithPressureListener
 import com.arshapshap.forcegestures.sample.R
 import com.arshapshap.forcegestures.sample.base.BaseFragment
@@ -52,7 +52,7 @@ internal class CalibrationFragment : BaseFragment<FragmentCalibrationBinding>(
 
     private fun setTextViewsText() = with(binding) {
         titleTextView.text =
-            if (CalibrationValues.calibrationRequired) getString(R.string.calibration_is_required)
+            if (PressureCalibrator.calibrationRequired) getString(R.string.calibration_is_required)
             else getString(R.string.calibration_completed)
         pressureTextView.text = pressureTextView.text.toString().firstCap()
         weakTouchTextView.text = weakTouchTextView.text.toString().firstCap()
@@ -97,8 +97,8 @@ internal class CalibrationFragment : BaseFragment<FragmentCalibrationBinding>(
     }
 
     private fun saveValues() = viewModel.pressure.value?.let {
-        CalibrationValues.Editor(sharedPreferences).saveWeakPressure(it[0].average().toFloat())
-        CalibrationValues.Editor(sharedPreferences).saveForcePressure(it[1].average().toFloat())
+        PressureCalibrator.Editor(sharedPreferences).saveWeakPressure(it[0].average().toFloat())
+        PressureCalibrator.Editor(sharedPreferences).saveForcePressure(it[1].average().toFloat())
     }
 
     private fun getHintText(step: CalibrationStep) = when (step) {

@@ -10,8 +10,7 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
-import androidx.preference.PreferenceManager
-import com.arshapshap.forcegestures.calibration.CalibrationValues
+import com.arshapshap.forcegestures.calibration.PressureCalibrator
 import com.arshapshap.forcegestures.sample.R
 import com.arshapshap.forcegestures.sample.base.BaseFragment
 import com.arshapshap.forcegestures.sample.databinding.FragmentMainBinding
@@ -22,10 +21,8 @@ internal class MainFragment : BaseFragment<FragmentMainBinding>(
 ) {
 
     override fun initViews() = with(binding) {
-        CalibrationValues.Editor(PreferenceManager.getDefaultSharedPreferences(requireContext()))
-            .loadPressure()
-        calibrationRequiredTextView.setVisible(CalibrationValues.calibrationRequired)
-        setButtonsEnabled(!CalibrationValues.calibrationRequired)
+        calibrationRequiredTextView.setVisible(PressureCalibrator.calibrationRequired)
+        setButtonsEnabled(!PressureCalibrator.calibrationRequired)
         configureToolbar()
         setOnClickListeners()
         setButtonsNames()
