@@ -1,5 +1,6 @@
 package com.arshapshap.forcegestures.forceclick
 
+import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import com.arshapshap.forcegestures.DEFAULT_FORCE_TOUCH_THRESHOLD
@@ -19,18 +20,23 @@ fun View.setOnForceClickListener(
     listener: OnForceClickListener?,
     threshold: Float = DEFAULT_FORCE_TOUCH_THRESHOLD
 ) {
-    setOnTouchListener { view, event ->
-        when (event.action) {
-            MotionEvent.ACTION_DOWN -> {
+    val view = this
+    val gestureDetector =
+        GestureDetector(this.context, object : GestureDetector.SimpleOnGestureListener() {
+
+            override fun onSingleTapConfirmed(event: MotionEvent): Boolean {
                 if (!ForceGesturesInformer.readyToUse)
                     listener?.onUndefinedClick(view)
                 else if (PressureHelper.isForceTouch(event, threshold))
                     listener?.onForceClick(view)
                 else
                     listener?.onNormalClick(view)
-                performClick()
+                return super.onSingleTapConfirmed(event)
             }
-        }
-        false
+        })
+    setOnTouchListener { _, event ->
+        if (event.action == MotionEvent.ACTION_UP)
+            performClick()
+        gestureDetector.onTouchEvent(event)
     }
 }

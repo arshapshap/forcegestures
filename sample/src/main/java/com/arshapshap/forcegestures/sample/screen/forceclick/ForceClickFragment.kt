@@ -13,16 +13,19 @@ internal class ForceClickFragment : BaseGestureTestFragment(), OnForceClickListe
 
     override fun initViews() = with (binding)  {
         super.initViews(R.string.force_click)
+        cardView.foreground.setRippleColor(getColorControlHighlight())
         cardView.setOnForceClickListener(this@ForceClickFragment)
     }
 
     override fun onForceClick(view: View) {
         view.foreground.setRippleColor(getPrimaryColor())
+        view.isPressed = true
+        view.isPressed = false
         showGestureDetected(R.string.force_click)
+        view.foreground.setRippleColorAfterDelay(getColorControlHighlight())
     }
 
     override fun onNormalClick(view: View) {
-        view.foreground.setRippleColor(getColorControlHighlight())
         showGestureDetected(R.string.normal_click)
     }
 }

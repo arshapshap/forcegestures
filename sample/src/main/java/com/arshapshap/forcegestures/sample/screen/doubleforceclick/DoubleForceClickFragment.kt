@@ -27,9 +27,6 @@ internal class DoubleForceClickFragment : BaseGestureTestFragment(), OnDoubleFor
     }
 
     override fun onDoubleNormalClick(view: View) {
-        view.foreground.setRippleColor(getColorControlHighlight())
-        view.isPressed = false
-        view.isPressed = true
         showGestureDetected(R.string.double_normal_click)
     }
 }
