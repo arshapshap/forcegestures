@@ -26,18 +26,19 @@ class DoubleClickListenerImpl(
         GestureDetector(view.context, object : GestureDetector.SimpleOnGestureListener() {
 
             override fun onDoubleTap(event: MotionEvent): Boolean {
-                if (!ForceGesturesInformer.readyToUse) listener?.onDoubleUndefinedClick(view)
-                else if (PressureHelper.isForceTouch(
-                        event, threshold
-                    )
-                ) listener?.onDoubleForceClick(view)
-                else listener?.onDoubleNormalClick(view)
+                if (!ForceGesturesInformer.readyToUse)
+                    listener?.onDoubleUndefinedClick(view)
+                else if (PressureHelper.isForceTouch(event, threshold))
+                    listener?.onDoubleForceClick(view)
+                else
+                    listener?.onDoubleNormalClick(view)
                 return super.onDoubleTap(event)
             }
         })
 
     override fun onTouch(view: View, event: MotionEvent): Boolean {
-        if (event.action == MotionEvent.ACTION_UP) view.performClick()
+        if (event.action == MotionEvent.ACTION_UP)
+            view.performClick()
         return gestureDetector.onTouchEvent(event)
     }
 }

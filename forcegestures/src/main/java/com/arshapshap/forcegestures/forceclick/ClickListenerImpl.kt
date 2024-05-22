@@ -27,15 +27,19 @@ class ClickListenerImpl(
         GestureDetector(view.context, object : GestureDetector.SimpleOnGestureListener() {
 
             override fun onSingleTapConfirmed(event: MotionEvent): Boolean {
-                if (!ForceGesturesInformer.readyToUse) listener?.onUndefinedClick(view)
-                else if (PressureHelper.isForceTouch(event, threshold)) listener?.onForceClick(view)
-                else listener?.onNormalClick(view)
+                if (!ForceGesturesInformer.readyToUse)
+                    listener?.onUndefinedClick(view)
+                else if (PressureHelper.isForceTouch(event, threshold))
+                    listener?.onForceClick(view)
+                else
+                    listener?.onNormalClick(view)
                 return super.onSingleTapConfirmed(event)
             }
         })
 
     override fun onTouch(view: View, event: MotionEvent): Boolean {
-        if (event.action == MotionEvent.ACTION_UP) view.performClick()
+        if (event.action == MotionEvent.ACTION_UP)
+            view.performClick()
         return gestureDetector.onTouchEvent(event)
     }
 }

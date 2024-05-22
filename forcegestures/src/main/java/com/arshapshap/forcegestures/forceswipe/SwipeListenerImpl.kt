@@ -44,7 +44,8 @@ class SwipeListenerImpl(
         })
 
     override fun onTouch(view: View, event: MotionEvent): Boolean {
-        if (event.action == MotionEvent.ACTION_UP) view.performClick()
+        if (event.action == MotionEvent.ACTION_UP)
+            view.performClick()
         return gestureDetector.onTouchEvent(event)
     }
 }

@@ -22,7 +22,8 @@ class ScaleListenerImpl(
     private val scaleDetector = ScaleGestureDetector(view.context, scaleListener)
 
     override fun onTouch(view: View, event: MotionEvent): Boolean {
-        if (event.action == MotionEvent.ACTION_UP) view.performClick()
+        if (event.action == MotionEvent.ACTION_UP)
+            view.performClick()
         scaleListener.motionEvent = event
         scaleDetector.onTouchEvent(event)
         return true
