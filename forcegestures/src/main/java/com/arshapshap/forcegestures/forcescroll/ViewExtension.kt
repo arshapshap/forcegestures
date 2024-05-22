@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
  * @see OnForceScrollListener
  */
 fun View.setOnForceScrollListener(listener: OnForceScrollListener, orientation: Int = LinearLayout.VERTICAL) {
-    setOnTouchListener(ScrollListener(orientation) { listener.onForceScroll(this, it) })
+    setOnTouchListener(ScrollListenerImpl(orientation) { listener.onForceScroll(this, it) })
 }
 
 /**
@@ -28,7 +28,7 @@ fun View.setOnForceScrollListener(listener: OnForceScrollListener, orientation: 
 fun RecyclerView.setForceScrollListener(
     orientation: Int = (this.layoutManager as LinearLayoutManager).orientation
 ) {
-    setOnTouchListener(ScrollListener(orientation) {
+    setOnTouchListener(ScrollListenerImpl(orientation) {
         if (orientation == LinearLayout.VERTICAL)
             this.scrollBy(0, it.toInt())
         else

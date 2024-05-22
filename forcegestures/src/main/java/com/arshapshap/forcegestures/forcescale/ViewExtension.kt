@@ -1,7 +1,5 @@
 package com.arshapshap.forcegestures.forcescale
 
-import android.view.MotionEvent
-import android.view.ScaleGestureDetector
 import android.view.View
 
 /**
@@ -13,13 +11,5 @@ import android.view.View
  * @see OnForceScaleListener
  */
 fun View.setOnForceScaleListener(listener: OnForceScaleListener) {
-    val scaleListener = ScaleListener { listener.onForceScale(this, it) }
-    val scaleDetector = ScaleGestureDetector(context, scaleListener)
-    setOnTouchListener { _, event ->
-        if (event.action == MotionEvent.ACTION_UP)
-            performClick()
-        scaleListener.motionEvent = event
-        scaleDetector.onTouchEvent(event)
-        return@setOnTouchListener true
-    }
+    setOnTouchListener(ScaleListenerImpl(this, listener))
 }

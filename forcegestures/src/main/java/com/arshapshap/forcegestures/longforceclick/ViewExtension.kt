@@ -1,11 +1,7 @@
 package com.arshapshap.forcegestures.longforceclick
 
-import android.view.GestureDetector
-import android.view.MotionEvent
 import android.view.View
 import com.arshapshap.forcegestures.DEFAULT_FORCE_TOUCH_THRESHOLD
-import com.arshapshap.forcegestures.ForceGesturesInformer
-import com.arshapshap.forcegestures.PressureHelper
 
 /**
  * Sets an [OnLongForceClickListener] on this [View] to receive long force click and long normal click events.
@@ -20,22 +16,5 @@ fun View.setOnLongForceClickListener(
     listener: OnLongForceClickListener?,
     threshold: Float = DEFAULT_FORCE_TOUCH_THRESHOLD
 ) {
-    val view = this
-    val gestureDetector =
-        GestureDetector(this.context, object : GestureDetector.SimpleOnGestureListener() {
-
-            override fun onLongPress(event: MotionEvent) {
-                if (!ForceGesturesInformer.readyToUse)
-                    listener?.onLongUndefinedClick(view)
-                else if (PressureHelper.isForceTouch(event, threshold))
-                    listener?.onLongForceClick(view)
-                else
-                    listener?.onLongNormalClick(view)
-            }
-        })
-    setOnTouchListener { _, event ->
-        if (event.action == MotionEvent.ACTION_UP)
-            performClick()
-        gestureDetector.onTouchEvent(event)
-    }
+    setOnTouchListener(LongClickListenerImpl(this, listener, threshold))
 }

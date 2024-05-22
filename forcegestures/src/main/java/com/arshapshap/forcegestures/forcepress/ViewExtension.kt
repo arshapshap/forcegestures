@@ -1,8 +1,6 @@
 package com.arshapshap.forcegestures.forcepress
 
-import android.view.MotionEvent
 import android.view.View
-import com.arshapshap.forcegestures.PressureHelper
 
 /**
  * Sets an [OnForcePressListener] on this [View] to receive continuous force press events.
@@ -13,15 +11,5 @@ import com.arshapshap.forcegestures.PressureHelper
  * @see OnForcePressListener
  */
 fun View.setOnForcePressListener(listener: OnForcePressListener?) {
-    setOnTouchListener { view, event ->
-        when (event.action) {
-            MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
-                listener?.onForcePress(view, PressureHelper.getNormalizedPressure(event))
-            }
-            MotionEvent.ACTION_UP -> {
-                performClick()
-            }
-        }
-        false
-    }
+    setOnTouchListener(PressListenerImpl(listener))
 }
