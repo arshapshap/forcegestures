@@ -18,9 +18,10 @@ fun View.setOnForcePressListener(listener: OnForcePressListener?) {
             MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
                 listener?.onForcePress(view, PressureHelper.getNormalizedPressure(event))
             }
+            MotionEvent.ACTION_UP -> {
+                performClick()
+            }
         }
-        if (event.action == MotionEvent.ACTION_DOWN)
-            performClick()
         false
     }
 }

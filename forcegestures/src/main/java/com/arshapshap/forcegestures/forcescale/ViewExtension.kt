@@ -16,7 +16,7 @@ fun View.setOnForceScaleListener(listener: OnForceScaleListener) {
     val scaleListener = ScaleListener { listener.onForceScale(this, it) }
     val scaleDetector = ScaleGestureDetector(context, scaleListener)
     setOnTouchListener { _, event ->
-        if (event.action == MotionEvent.ACTION_DOWN)
+        if (event.action == MotionEvent.ACTION_UP)
             performClick()
         scaleListener.motionEvent = event
         scaleDetector.onTouchEvent(event)

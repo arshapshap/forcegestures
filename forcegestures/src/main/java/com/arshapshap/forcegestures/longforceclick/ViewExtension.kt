@@ -31,11 +31,10 @@ fun View.setOnLongForceClickListener(
                     listener?.onLongForceClick(view)
                 else
                     listener?.onLongNormalClick(view)
-                performLongClick()
             }
         })
     setOnTouchListener { _, event ->
-        if (event.action == MotionEvent.ACTION_DOWN)
+        if (event.action == MotionEvent.ACTION_UP)
             performClick()
         gestureDetector.onTouchEvent(event)
     }

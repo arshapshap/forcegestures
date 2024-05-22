@@ -35,7 +35,7 @@ fun View.setOnDoubleForceClickListener(
             }
         })
     setOnTouchListener { _, event ->
-        if (event.action == MotionEvent.ACTION_DOWN)
+        if (event.action == MotionEvent.ACTION_UP)
             performClick()
         gestureDetector.onTouchEvent(event)
     }
