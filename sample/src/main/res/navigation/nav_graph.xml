@@ -18,17 +18,17 @@
     <fragment
         android:id="@+id/forceTouchFragment"
         android:name="com.arshapshap.forcegestures.sample.screen.forceclick.ForceClickFragment"
-        android:label="Force Touch"
+        android:label="Force Click"
         tools:layout="@layout/fragment_force_gesture" />
     <fragment
         android:id="@+id/longForceTouchFragment"
         android:name="com.arshapshap.forcegestures.sample.screen.longforceclick.LongForceClickFragment"
-        android:label="Long Force Touch"
+        android:label="Long Force Click"
         tools:layout="@layout/fragment_force_gesture" />
     <fragment
         android:id="@+id/doubleForceTouchFragment"
         android:name="com.arshapshap.forcegestures.sample.screen.doubleforceclick.DoubleForceClickFragment"
-        android:label="Double Force Touch"
+        android:label="Double Force Click"
         tools:layout="@layout/fragment_force_gesture" />
     <fragment
         android:id="@+id/forcePinchFragment"
