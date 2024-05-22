@@ -22,14 +22,15 @@ internal class ScrollListener(
                 startY = event.y
                 lastX = startX
                 lastY = startY
-                view.performClick()
             }
-
             MotionEvent.ACTION_MOVE -> {
                 val velocityX = (lastX - event.x) * PressureHelper.getPressureDeviance(event)
                 val velocityY = (lastY - event.y) * PressureHelper.getPressureDeviance(event)
                 onScroll.invoke(if (orientation == LinearLayout.VERTICAL) velocityY else velocityX)
                 lastY = event.y
+            }
+            MotionEvent.ACTION_UP -> {
+                view.performClick()
             }
         }
         return true
