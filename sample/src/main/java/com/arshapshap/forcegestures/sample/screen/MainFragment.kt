@@ -37,8 +37,8 @@ internal class MainFragment : BaseFragment<FragmentMainBinding>(
         doubleForceTouchFragmentButton.onClickNavigateTo(R.id.doubleForceTouchFragment)
         forcePressFragmentButton.onClickNavigateTo(R.id.forcePressFragment)
         forceSwipeFragmentButton.onClickNavigateTo(R.id.forceSwipeFragment)
-        forceScrollFragmentButton.onClickNavigateTo(R.id.forceScrollFragment)
-        forcePinchFragmentButton.onClickNavigateTo(R.id.forcePinchFragment)
+        forceScrollFragmentButton.onClickNavigateTo(R.id.forceVerticalScrollFragment)
+        forcePinchFragmentButton.onClickNavigateTo(R.id.forceScaleFragment)
     }
 
     private fun setButtonsNames() = with(binding) {

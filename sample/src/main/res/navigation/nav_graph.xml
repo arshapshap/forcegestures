@@ -31,23 +31,40 @@
         android:label="Double Force Click"
         tools:layout="@layout/fragment_force_gesture" />
     <fragment
-        android:id="@+id/forcePinchFragment"
-        android:name="com.arshapshap.forcegestures.sample.screen.forcescale.ForceScaleFragment"
-        android:label="Force Pinch"
-        tools:layout="@layout/fragment_force_gesture" />
-    <fragment
         android:id="@+id/forcePressFragment"
         android:name="com.arshapshap.forcegestures.sample.screen.forcepress.ForcePressFragment"
         android:label="Force Press"
-        tools:layout="@layout/fragment_force_gesture" />
-    <fragment
-        android:id="@+id/forceScrollFragment"
-        android:name="com.arshapshap.forcegestures.sample.screen.forcescroll.ForceScrollFragment"
-        android:label="Force Scroll"
         tools:layout="@layout/fragment_force_gesture" />
     <fragment
         android:id="@+id/forceSwipeFragment"
         android:name="com.arshapshap.forcegestures.sample.screen.forceswipe.ForceSwipeFragment"
         android:label="Force Swipe"
         tools:layout="@layout/fragment_force_gesture" />
+    <fragment
+        android:id="@+id/forceVerticalScrollFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.forcescroll.ForceVerticalScrollFragment"
+        android:label="Force Vertical Scroll"
+        tools:layout="@layout/fragment_force_scroll_vertical">
+        <action
+            android:id="@+id/action_verticalStroll_to_horizontalScroll"
+            app:destination="@id/forceHorizontalScrollFragment"
+            app:popUpTo="@+id/mainFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/forceHorizontalScrollFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.forcescroll.ForceHorizontalScrollFragment"
+        android:label="Force Horizontal Scroll"
+        tools:layout="@layout/fragment_force_scroll_horizontal">
+        <action
+            android:id="@+id/action_horizontalScroll_to_verticalStroll"
+            app:destination="@id/forceVerticalScrollFragment"
+            app:popUpTo="@+id/mainFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/forceScaleFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.forcescale.ForceScaleFragment"
+        android:label="Force Scale"
+        tools:layout="@layout/fragment_force_scale" />
 </navigation>
