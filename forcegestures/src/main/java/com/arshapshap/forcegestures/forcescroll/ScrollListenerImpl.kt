@@ -15,14 +15,12 @@ class ScrollListenerImpl(
     private val listener: OnForceScrollListener?
 ) : View.OnTouchListener {
 
-    private var start = Point(0f, 0f)
     private var last = Point(0f, 0f)
 
     override fun onTouch(view: View, event: MotionEvent): Boolean {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
-                start = Point(event.x, event.y)
-                last = Point(start.x, start.y)
+                last = Point(event.x, event.y)
             }
 
             MotionEvent.ACTION_MOVE -> {
