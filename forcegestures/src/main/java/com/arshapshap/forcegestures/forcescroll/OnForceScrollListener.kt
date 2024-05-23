@@ -20,9 +20,8 @@ fun interface OnForceScrollListener {
      * on the associated View.
      *
      * @param view The [View] that received the force scroll event.
-     * @param velocity The current scroll velocity, where positive values represent scrolling in the
-     *                 positive direction (down for vertical orientation, right for horizontal orientation),
-     *                 and negative values represent scrolling in the negative direction.
+     * @param velocityX The current horizontal scroll velocity, where positive values represent scrolling to the right, and negative values represent scrolling to the left.
+     * @param velocityY The current vertical scroll velocity, where positive values represent scrolling down, and negative values represent scrolling up.
      */
-    fun onForceScroll(view: View, velocity: Float)
+    fun onForceScroll(view: View, velocityX: Float, velocityY: Float)
 }

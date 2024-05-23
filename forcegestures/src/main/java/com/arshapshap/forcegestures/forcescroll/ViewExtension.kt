@@ -10,12 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
  *
  * @receiver The [View] on which the listener will be set.
  * @param listener The [OnForceScrollListener] instance to receive force scroll events.
- * @param orientation The orientation of the scroll gesture. Use [LinearLayout.VERTICAL] for vertical scrolling, or [LinearLayout.HORIZONTAL] for horizontal scrolling.
  *
  * @see OnForceScrollListener
  */
-fun View.setOnForceScrollListener(listener: OnForceScrollListener, orientation: Int = LinearLayout.VERTICAL) {
-    setOnTouchListener(ScrollListenerImpl(orientation) { listener.onForceScroll(this, it) })
+fun View.setOnForceScrollListener(listener: OnForceScrollListener) {
+    setOnTouchListener(ScrollListenerImpl(listener))
 }
 
 /**
@@ -28,10 +27,10 @@ fun View.setOnForceScrollListener(listener: OnForceScrollListener, orientation: 
 fun RecyclerView.setForceScrollListener(
     orientation: Int = (this.layoutManager as LinearLayoutManager).orientation
 ) {
-    setOnTouchListener(ScrollListenerImpl(orientation) {
+    setOnForceScrollListener { _, velocityX, velocityY ->
         if (orientation == LinearLayout.VERTICAL)
-            this.scrollBy(0, it.toInt())
+            this.scrollBy(0, velocityY.toInt())
         else
-            this.scrollBy(it.toInt(), 0)
-    })
+            this.scrollBy(velocityX.toInt(), 0)
+    }
 }
