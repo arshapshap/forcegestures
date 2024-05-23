@@ -4,6 +4,9 @@ import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import android.view.View
 import android.view.View.OnTouchListener
+import com.arshapshap.forcegestures.PressureHelper
+
+private const val MITIGATION_FACTOR = 0.1f
 
 /**
  * An implementation of the [View.OnTouchListener] interface that handles scale events on a [View].
@@ -14,18 +17,29 @@ import android.view.View.OnTouchListener
  * @param listener The [OnForceScaleListener] instance that will receive the scale events.
  */
 class ScaleListenerImpl(
-    view: View,
-    listener: OnForceScaleListener?
-) : OnTouchListener {
+    private val view: View,
+    private val listener: OnForceScaleListener?
+) : OnTouchListener, ScaleGestureDetector.SimpleOnScaleGestureListener() {
 
-    private val scaleListener = ScaleGestureListener { listener?.onForceScale(view, it) }
-    private val scaleDetector = ScaleGestureDetector(view.context, scaleListener)
+    private val scaleDetector = ScaleGestureDetector(view.context, this)
+    private var motionEvent: MotionEvent? = null
 
     override fun onTouch(view: View, event: MotionEvent): Boolean {
         if (event.action == MotionEvent.ACTION_UP)
             view.performClick()
-        scaleListener.motionEvent = event
+        this.motionEvent = event
         scaleDetector.onTouchEvent(event)
+        return true
+    }
+
+    override fun onScale(detector: ScaleGestureDetector): Boolean {
+        var scaleFactor = detector.scaleFactor
+        motionEvent?.let {
+            val deviance = (PressureHelper.getPressureDeviance(it) - 1) * MITIGATION_FACTOR + 1
+            scaleFactor = if (scaleFactor >= 1) maxOf(scaleFactor, scaleFactor * deviance)
+            else minOf(scaleFactor, scaleFactor / deviance)
+        }
+        listener?.onForceScale(view, scaleFactor)
         return true
     }
 }
