@@ -33,6 +33,7 @@ class ScrollListenerImpl(
                 val velocityX = (lastX - event.x) * PressureHelper.getPressureDeviance(event)
                 val velocityY = (lastY - event.y) * PressureHelper.getPressureDeviance(event)
                 listener?.onForceScroll(view, velocityX, velocityY)
+                lastX = event.x
                 lastY = event.y
             }
 
