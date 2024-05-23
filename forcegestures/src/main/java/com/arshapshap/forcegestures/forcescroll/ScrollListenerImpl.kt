@@ -15,26 +15,21 @@ class ScrollListenerImpl(
     private val listener: OnForceScrollListener?
 ) : View.OnTouchListener {
 
-    private var startX = 0f
-    private var startY = 0f
-    private var lastX = 0f
-    private var lastY = 0f
+    private var start = Point(0f, 0f)
+    private var last = Point(0f, 0f)
 
     override fun onTouch(view: View, event: MotionEvent): Boolean {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
-                startX = event.x
-                startY = event.y
-                lastX = startX
-                lastY = startY
+                start = Point(event.x, event.y)
+                last = Point(start.x, start.y)
             }
 
             MotionEvent.ACTION_MOVE -> {
-                val velocityX = (lastX - event.x) * PressureHelper.getPressureDeviance(event)
-                val velocityY = (lastY - event.y) * PressureHelper.getPressureDeviance(event)
+                val velocityX = (last.x - event.x) * PressureHelper.getPressureDeviance(event)
+                val velocityY = (last.y - event.y) * PressureHelper.getPressureDeviance(event)
                 listener?.onForceScroll(view, velocityX, velocityY)
-                lastX = event.x
-                lastY = event.y
+                last = Point(event.x, event.y)
             }
 
             MotionEvent.ACTION_UP -> {
@@ -44,3 +39,8 @@ class ScrollListenerImpl(
         return true
     }
 }
+
+private data class Point(
+    val x: Float,
+    val y: Float
+)
