@@ -26,7 +26,7 @@ class LongClickListenerImpl(
         GestureDetector(view.context, object : GestureDetector.SimpleOnGestureListener() {
 
             override fun onLongPress(event: MotionEvent) {
-                if (!ForceGesturesInformer.readyToUse)
+                if (!ForceGesturesInformer.readyForUse)
                     listener?.onLongUndefinedClick(view)
                 else if (PressureHelper.isForceTouch(event, threshold))
                     listener?.onLongForceClick(view)

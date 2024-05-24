@@ -25,7 +25,7 @@ internal class MainFragment : BaseFragment<FragmentMainBinding>(
             warningTextView.text = getString(R.string.your_device_does_not_support_force_touches)
         else if (ForceGesturesInformer.doesDeviceSupportForceTouches)
             warningTextView.text = getString(R.string.calibration_is_required)
-        warningTextView.setVisible(!ForceGesturesInformer.readyToUse)
+        warningTextView.setVisible(!ForceGesturesInformer.readyForUse)
         configureToolbar()
         setOnClickListeners()
         setButtonsNames()

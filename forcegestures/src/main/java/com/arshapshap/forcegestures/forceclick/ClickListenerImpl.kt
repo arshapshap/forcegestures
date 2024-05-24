@@ -27,7 +27,7 @@ class ClickListenerImpl(
         GestureDetector(view.context, object : GestureDetector.SimpleOnGestureListener() {
 
             override fun onSingleTapConfirmed(event: MotionEvent): Boolean {
-                if (!ForceGesturesInformer.readyToUse)
+                if (!ForceGesturesInformer.readyForUse)
                     listener?.onUndefinedClick(view)
                 else if (PressureHelper.isForceTouch(event, threshold))
                     listener?.onForceClick(view)

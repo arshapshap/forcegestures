@@ -26,7 +26,7 @@ class DoubleClickListenerImpl(
         GestureDetector(view.context, object : GestureDetector.SimpleOnGestureListener() {
 
             override fun onDoubleTap(event: MotionEvent): Boolean {
-                if (!ForceGesturesInformer.readyToUse)
+                if (!ForceGesturesInformer.readyForUse)
                     listener?.onDoubleUndefinedClick(view)
                 else if (PressureHelper.isForceTouch(event, threshold))
                     listener?.onDoubleForceClick(view)

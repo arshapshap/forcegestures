@@ -33,7 +33,7 @@ class SwipeListenerImpl(
             ): Boolean {
                 if (e1 == null)
                     return false
-                if (!ForceGesturesInformer.readyToUse)
+                if (!ForceGesturesInformer.readyForUse)
                     listener?.onUndefinedSwipe(view, velocityX, velocityY)
                 else if (PressureHelper.isForceTouch(e1, threshold))
                     listener?.onForceSwipe(view, velocityX, velocityY)
