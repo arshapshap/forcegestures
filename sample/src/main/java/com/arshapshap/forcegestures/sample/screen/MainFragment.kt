@@ -32,23 +32,23 @@ internal class MainFragment : BaseFragment<FragmentMainBinding>(
     }
 
     private fun setOnClickListeners() = with(binding) {
-        forceTouchFragmentButton.onClickNavigateTo(R.id.forceTouchFragment)
-        longForceTouchFragmentButton.onClickNavigateTo(R.id.longForceTouchFragment)
-        doubleForceTouchFragmentButton.onClickNavigateTo(R.id.doubleForceTouchFragment)
+        forceClickFragmentButton.onClickNavigateTo(R.id.forceTouchFragment)
+        longForceClickFragmentButton.onClickNavigateTo(R.id.longForceTouchFragment)
+        doubleForceClickFragmentButton.onClickNavigateTo(R.id.doubleForceTouchFragment)
         forcePressFragmentButton.onClickNavigateTo(R.id.forcePressFragment)
         forceSwipeFragmentButton.onClickNavigateTo(R.id.forceSwipeFragment)
         forceScrollFragmentButton.onClickNavigateTo(R.id.forceVerticalScrollFragment)
-        forcePinchFragmentButton.onClickNavigateTo(R.id.forceScaleFragment)
+        forceScaleFragmentButton.onClickNavigateTo(R.id.forceScaleFragment)
     }
 
     private fun setButtonsNames() = with(binding) {
-        forceTouchFragmentButton.text = getButtonName(R.string.force_click)
-        longForceTouchFragmentButton.text = getButtonName(R.string.long_force_click)
-        doubleForceTouchFragmentButton.text = getButtonName(R.string.double_force_click)
+        forceClickFragmentButton.text = getButtonName(R.string.force_click)
+        longForceClickFragmentButton.text = getButtonName(R.string.long_force_click)
+        doubleForceClickFragmentButton.text = getButtonName(R.string.double_force_click)
         forcePressFragmentButton.text = getButtonName(R.string.force_press)
         forceSwipeFragmentButton.text = getButtonName(R.string.force_swipe)
         forceScrollFragmentButton.text = getButtonName(R.string.force_scroll)
-        forcePinchFragmentButton.text = getButtonName(R.string.force_scale)
+        forceScaleFragmentButton.text = getButtonName(R.string.force_scale)
     }
 
     private fun configureToolbar() {

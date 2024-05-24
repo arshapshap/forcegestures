@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,60 +10,73 @@
 
     <TextView
         android:id="@+id/warning_text_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:gravity="center"
         android:text="@string/your_device_does_not_support_force_touches"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
         android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/force_gestures_fragments_buttons"
+        app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-    <Button
-        android:id="@+id/forceTouchFragmentButton"
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/force_gestures_fragments_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Test force touch" />
+        app:constraint_referenced_ids="force_click_fragment_button, long_force_click_fragment_button, double_force_click_fragment_button, force_press_fragment_button, force_swipe_fragment_button, force_scroll_fragment_button, force_scale_fragment_button"
+        app:flow_verticalStyle="packed"
+        app:flow_wrapMode="chain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/longForceTouchFragmentButton"
+        android:id="@+id/force_click_fragment_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Test long force touch" />
+        tools:ignore="MissingConstraints"
+        tools:text="Test force click" />
 
     <Button
-        android:id="@+id/doubleForceTouchFragmentButton"
+        android:id="@+id/long_force_click_fragment_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Test double force touch" />
+        tools:ignore="MissingConstraints"
+        tools:text="Test long force click" />
 
     <Button
-        android:id="@+id/forcePressFragmentButton"
+        android:id="@+id/double_force_click_fragment_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        tools:text="Test double force click" />
+
+    <Button
+        android:id="@+id/force_press_fragment_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
         tools:text="Test force press" />
 
     <Button
-        android:id="@+id/forceSwipeFragmentButton"
+        android:id="@+id/force_swipe_fragment_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
         tools:text="Test force swipe" />
 
     <Button
-        android:id="@+id/forceScrollFragmentButton"
+        android:id="@+id/force_scroll_fragment_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
         tools:text="Test force scroll" />
 
     <Button
-        android:id="@+id/forcePinchFragmentButton"
+        android:id="@+id/force_scale_fragment_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Test force pinch" />
+        tools:ignore="MissingConstraints"
+        tools:text="Test force scale" />
 
-    <Space
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
