@@ -35,7 +35,6 @@ android {
 
 dependencies {
 
-    implementation("com.android.tools.build:gradle:8.2.2")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
 }
 
