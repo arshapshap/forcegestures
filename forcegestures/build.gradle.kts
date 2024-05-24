@@ -38,3 +38,17 @@ dependencies {
     implementation("com.android.tools.build:gradle:8.2.2")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
 }
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.github.arshapshap"
+            artifactId = "forcegestures"
+            version = "0.1.0"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
