@@ -19,7 +19,7 @@ import com.arshapshap.forcegestures.calibration.PressureCalibrator.weakPressure
  */
 object ForceGesturesInformer {
 
-    /** Indicates whether the library is ready to use (true if calibration is completed and the device supports force touches). */
+    /** Indicates whether the library is ready for use (true if calibration is completed and the device supports force touches). */
     val readyForUse get() = !calibrationRequired && doesDeviceSupportForceTouches
 
     /** Indicates whether calibration is required (true if either [PressureCalibrator.weakPressure] or [PressureCalibrator.forcePressure] is at its default value). */
