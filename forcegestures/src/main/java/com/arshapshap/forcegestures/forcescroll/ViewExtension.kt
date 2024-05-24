@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
  *
  * @see OnForceScrollListener
  */
-fun View.setOnForceScrollListener(listener: OnForceScrollListener) {
+fun View.setOnForceScrollListener(listener: OnForceScrollListener?) {
     setOnTouchListener(ScrollListenerImpl(listener))
 }
 

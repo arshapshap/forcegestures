@@ -10,6 +10,6 @@ import android.view.View
  *
  * @see OnForceScaleListener
  */
-fun View.setOnForceScaleListener(listener: OnForceScaleListener) {
+fun View.setOnForceScaleListener(listener: OnForceScaleListener?) {
     setOnTouchListener(ScaleListenerImpl(this, listener))
 }
