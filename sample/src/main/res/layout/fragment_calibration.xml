@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".screen.MainFragment">
+
+        <TextView
+            android:id="@+id/title_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="@android:style/TextAppearance.Material.Large"
+            app:layout_constraintBottom_toTopOf="@id/hint_text_view"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/calibration_completed" />
+
+        <TextView
+            android:id="@+id/hint_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toTopOf="@id/card_view"
+            app:layout_constraintTop_toBottomOf="@id/title_text_view"
+            tools:text="Make force touch" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintBottom_toTopOf="@id/grid_layout"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintTop_toBottomOf="@id/hint_text_view">
+
+            <ImageView
+                android:id="@+id/touch_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/a_place_for_touches"
+                android:src="@mipmap/ic_launcher_foreground" />
+        </androidx.cardview.widget.CardView>
+
+        <GridLayout
+            android:id="@+id/grid_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="4"
+            android:orientation="horizontal"
+            android:useDefaultMargins="true"
+            app:layout_constraintBottom_toTopOf="@id/bottom_buttons_flow"
+            app:layout_constraintTop_toBottomOf="@id/card_view">
+
+            <TextView
+                android:id="@+id/pressure_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_columnSpan="3"
+                android:layout_gravity="fill"
+                android:gravity="center"
+                android:text="@string/pressure" />
+
+            <TextView
+                android:id="@+id/weak_touch_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="start"
+                android:gravity="center"
+                android:text="@string/weak_touch" />
+
+            <TextView
+                android:id="@+id/weak_pressure_text_view_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:text="@string/empty_float_value"
+                tools:text="0.15" />
+
+            <TextView
+                android:id="@+id/weak_pressure_text_view_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:text="@string/empty_float_value"
+                tools:text="0.14" />
+
+            <TextView
+                android:id="@+id/weak_pressure_text_view_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:text="@string/empty_float_value"
+                tools:text="0.16" />
+
+            <TextView
+                android:id="@+id/force_touch_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_gravity="start"
+                android:gravity="center"
+                android:text="@string/force_touch" />
+
+            <TextView
+                android:id="@+id/force_pressure_text_view_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:text="@string/empty_float_value" />
+
+            <TextView
+                android:id="@+id/force_pressure_text_view_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:text="@string/empty_float_value" />
+
+            <TextView
+                android:id="@+id/force_pressure_text_view_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center"
+                android:text="@string/empty_float_value" />
+        </GridLayout>
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/bottom_buttons_flow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="save_button, reset_last_value_button, reset_all_button"
+            app:flow_verticalBias="1"
+            app:flow_verticalStyle="packed"
+            app:flow_wrapMode="chain"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/grid_layout" />
+
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="@string/save"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/reset_last_value_button"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="@string/reset_last_value"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/reset_all_button"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/reset_all"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

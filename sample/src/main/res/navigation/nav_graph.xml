@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.MainFragment"
+        android:label="Main"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/calibrationFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.calibration.CalibrationFragment"
+        android:label="Calibration"
+        tools:layout="@layout/fragment_calibration" />
+    <fragment
+        android:id="@+id/forceTouchFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.forceclick.ForceClickFragment"
+        android:label="Force Click"
+        tools:layout="@layout/fragment_force_gesture" />
+    <fragment
+        android:id="@+id/longForceTouchFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.longforceclick.LongForceClickFragment"
+        android:label="Long Force Click"
+        tools:layout="@layout/fragment_force_gesture" />
+    <fragment
+        android:id="@+id/doubleForceTouchFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.doubleforceclick.DoubleForceClickFragment"
+        android:label="Double Force Click"
+        tools:layout="@layout/fragment_force_gesture" />
+    <fragment
+        android:id="@+id/forcePressFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.forcepress.ForcePressFragment"
+        android:label="Force Press"
+        tools:layout="@layout/fragment_force_gesture" />
+    <fragment
+        android:id="@+id/forceSwipeFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.forceswipe.ForceSwipeFragment"
+        android:label="Force Swipe"
+        tools:layout="@layout/fragment_force_gesture" />
+    <fragment
+        android:id="@+id/forceVerticalScrollFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.forcescroll.ForceVerticalScrollFragment"
+        android:label="Force Vertical Scroll"
+        tools:layout="@layout/fragment_force_scroll_vertical">
+        <action
+            android:id="@+id/action_verticalStroll_to_horizontalScroll"
+            app:destination="@id/forceHorizontalScrollFragment"
+            app:popUpTo="@+id/mainFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/forceHorizontalScrollFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.forcescroll.ForceHorizontalScrollFragment"
+        android:label="Force Horizontal Scroll"
+        tools:layout="@layout/fragment_force_scroll_horizontal">
+        <action
+            android:id="@+id/action_horizontalScroll_to_verticalStroll"
+            app:destination="@id/forceVerticalScrollFragment"
+            app:popUpTo="@+id/mainFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/forceScaleFragment"
+        android:name="com.arshapshap.forcegestures.sample.screen.forcescale.ForceScaleFragment"
+        android:label="Force Scale"
+        tools:layout="@layout/fragment_force_scale" />
+</navigation>
