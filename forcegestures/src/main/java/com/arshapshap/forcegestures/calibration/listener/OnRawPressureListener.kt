@@ -12,7 +12,7 @@ import android.view.View
  * To set an instance of this listener on a View during calibration, use the [View.setOnRawPressureListener]
  * extension function.
  */
-fun interface OnCalibrationPressureListener {
+fun interface OnRawPressureListener {
 
     /**
      * Called when a touch event with pressure information is detected on the associated [View].
