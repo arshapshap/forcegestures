@@ -1,8 +1,6 @@
-package com.arshapshap.forcegestures.calibration
+package com.arshapshap.forcegestures.calibration.listener
 
-import android.view.MotionEvent
 import android.view.View
-import com.arshapshap.forcegestures.PressureHelper
 
 /**
  * Sets an [OnCalibrationPressureListener] on this [View] to receive raw pressure events for calibration purposes.
@@ -16,13 +14,5 @@ import com.arshapshap.forcegestures.PressureHelper
  * @see OnCalibrationPressureListener
  */
 fun View.setOnRawPressureListener(listener: OnCalibrationPressureListener?) {
-    setOnTouchListener { view, event ->
-        when (event.action) {
-            MotionEvent.ACTION_DOWN -> {
-                listener?.onTouch(view, PressureHelper.getRawPressure(event))
-                performClick()
-            }
-        }
-        false
-    }
+    setOnTouchListener(RawPressureListenerImpl(listener))
 }

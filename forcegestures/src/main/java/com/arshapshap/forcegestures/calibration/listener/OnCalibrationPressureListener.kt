@@ -1,4 +1,4 @@
-package com.arshapshap.forcegestures.calibration
+package com.arshapshap.forcegestures.calibration.listener
 
 import android.view.View
 

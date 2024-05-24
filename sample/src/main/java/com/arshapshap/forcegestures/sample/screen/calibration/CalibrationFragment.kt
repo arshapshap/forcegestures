@@ -10,7 +10,7 @@ import androidx.preference.PreferenceManager
 import com.arshapshap.forcegestures.ForceGesturesInformer
 import com.arshapshap.forcegestures.calibration.CalibrationException
 import com.arshapshap.forcegestures.calibration.PressureCalibrator
-import com.arshapshap.forcegestures.calibration.setOnRawPressureListener
+import com.arshapshap.forcegestures.calibration.listener.setOnRawPressureListener
 import com.arshapshap.forcegestures.sample.R
 import com.arshapshap.forcegestures.sample.base.BaseFragment
 import com.arshapshap.forcegestures.sample.databinding.FragmentCalibrationBinding
