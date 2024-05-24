@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
  * Sets an [OnForceScrollListener] on this [View] to receive continuous force scroll events.
  *
  * @receiver The [View] on which the listener will be set.
- * @param listener The [OnForceScrollListener] instance to receive force scroll events.
+ * @param listener The [OnForceScrollListener] instance to receive force scroll events, or null to clear the existing listener.
  *
  * @see OnForceScrollListener
  */
