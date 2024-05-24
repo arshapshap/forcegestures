@@ -36,8 +36,8 @@ class ScaleListenerImpl(
         var scaleFactor = detector.scaleFactor
         motionEvent?.let {
             val deviance = (PressureHelper.getPressureDeviance(it) - 1) * MITIGATION_FACTOR + 1
-            scaleFactor = if (scaleFactor >= 1) maxOf(scaleFactor, scaleFactor * deviance)
-                else minOf(scaleFactor, scaleFactor / deviance)
+            scaleFactor = if (scaleFactor >= 1) (scaleFactor * deviance).coerceAtLeast(scaleFactor)
+                else (scaleFactor / deviance).coerceAtMost(scaleFactor)
         }
         listener?.onForceScale(view, scaleFactor)
         return true
