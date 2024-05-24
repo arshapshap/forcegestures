@@ -74,7 +74,7 @@ object PressureHelper {
     /**
      * Calculates the pressure deviance value from the given [MotionEvent].
      *
-     * The pressure deviance value is a float representing the normalized pressure value multiplied by 2.
+     * The pressure deviance value is a float representing the normalized pressure value divided by 0.5.
      * It is used to adjust the scroll or scale velocity based on the applied pressure.
      *
      * @param event The [MotionEvent] to calculate the pressure deviance value from.
